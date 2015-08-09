@@ -1,0 +1,33 @@
+ void reverse(char s[],int start,int stop){
+ char t;
+ while(start<stop){
+    t = s[start];
+    s[start]=s[stop];
+    s[stop]=t;
+    start++;
+    stop--;
+}
+}
+
+int main() {
+
+char str[100];
+gets(str);
+
+int pos=0,begin=0,end;
+reverse(str,begin,strlen(str)-1); //since the last character is null
+
+while(pos<=strlen(str)){
+    if((str[pos]==' ')||(str[pos]=='\0')||(str[pos]=='?')||(str[pos]=='!')){
+        end = pos - 1; 
+       reverse(str,begin,end);  
+        begin = pos+1; //for the next word
+    }
+
+    pos++;
+
+}   
+
+cout<<str;
+return 0;
+}
